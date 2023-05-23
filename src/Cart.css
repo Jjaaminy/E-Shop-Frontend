@@ -1,0 +1,50 @@
+.cart-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 10%;
+}
+
+.cart-table th {
+    background-color: black;
+    color: white;
+    padding: 8px;
+}
+
+.cart-table td {
+    background-color: white;
+    color: black;
+    padding: 8px;
+}
+
+.cart-table td,
+.cart-table th {
+    border: 1px solid black;
+}
+
+.cart-table td:last-child {
+    text-align: center;
+    width: 300px;
+}
+
+.total-amount {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+    font-size: xx-large;
+}
+
+.total-box {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.total-number {
+    margin-left: 8px;
+}
+
+
+
+
