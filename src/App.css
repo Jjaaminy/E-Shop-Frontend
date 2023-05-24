@@ -73,6 +73,10 @@ nav{
   background-color: #b2cbd0;
 }
 
+.title:hover{
+  font-family: cursive;
+}
+
 h2{
   margin-left: 20px;
   font-family: "Linux Biolinum G";

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import "./App.css"
 
-function Product({addtocart}) {
+function Product({addtocart,show}) {
+    if (!show) return null;
     const[products, setProducts] = useState([]);
 
     useEffect(() => {

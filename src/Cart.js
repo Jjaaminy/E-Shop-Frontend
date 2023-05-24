@@ -2,8 +2,22 @@ import React, { useEffect, useState } from 'react';
 import './Cart.css';
 
 
-function Cart({ cartItems, removeFromCart }) {
+function Cart({ cartItems, removeFromCart , show}) {
+    if (!show) return null;
     const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+
+   /* fetch(`/carts/${cartId}/items`)
+        .then(response => response.json())
+        .then(products => {
+            // Verarbeiten Sie die Liste der Produkte im Warenkorb
+            console.log(products);
+        })
+        .catch(error => {
+            // Behandeln Sie den Fehler bei der Anfrage
+            console.error(error);
+        });
+
+    */
 
     return (
         <div>
@@ -14,7 +28,7 @@ function Cart({ cartItems, removeFromCart }) {
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
-                        <th>Action</th>
+                        <th>x</th>
                     </tr>
                     </thead>
                     <tbody>

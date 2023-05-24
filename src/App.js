@@ -8,6 +8,8 @@ import {Card} from "react-bootstrap";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
+    const [show, setShow] = useState(false);
+    const [showhome, setShowhome] = useState(true);
 
     const addToCart = (product) => {
         setCartItems([...cartItems,product]);
@@ -22,21 +24,70 @@ function App() {
         }
     };
 
+   /* fetch('/api/carts/addItem', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(product),
+});
+
+// Artikel aus dem Warenkorb entfernen
+fetch('/api/carts/removeItem', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(product),
+});
+
+// Den Warenkorb für eine bestimmte cartId abrufen
+fetch(`/api/carts/${cartId}`)
+  .then(response => response.json())
+  .then(cart => {
+ cart.items.forEach(item => {
+      console.log(`Produkt: ${item.name}, Preis: ${item.price}, Menge: ${item.quantity}`);
+  });
+
+// Den Warenkorb leeren
+fetch(`/api/carts/${cartId}`)
+  .then(response => response.json())
+  .then(cart => {
+    // Warenkorb leeren
+    fetch(`/api/carts/${cartId}`, { method: 'DELETE' })
+      .then(() => {
+        console.log('Warenkorb geleert');
+        })
+      .catch(error => {
+        console.error('Fehler beim Leeren des Warenkorbs:', error);
+        });
+  })
+  .catch(error => {
+    console.error('Fehler beim Abrufen des Warenkorbs:', error);
+  });
+//
+
+    */
+
     const handleClick = () => {
-        window.location.href = '/Cart.js';
+        setShow(true);
+        setShowhome(false);
+    };
+
+    const handleback = () => {
+        setShow(false);
+        setShowhome(true);
     };
 
     return (
         <div>
             <nav>
-                <div className="title">E-Shop</div>
+                <div className="title" onClick={handleback}>E-Shop</div>
                 <button className="cart" onClick={handleClick}>🛒</button>
             </nav>
             <div>
-                <Product addtocart={addToCart}/>
-            </div>
-            <div>
-                <Cart cartItems={cartItems} removeFromCart={removeFromCart}/>
+               <Product show={showhome} addtocart={addToCart} />
+                <Cart show={show} cartItems={cartItems} removeFromCart={removeFromCart} />
             </div>
         </div>
     )
