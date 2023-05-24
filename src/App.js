@@ -82,7 +82,7 @@ fetch(`/api/carts/${cartId}`)
     return (
         <div>
             <nav>
-                <div className="title" onClick={handleback}>E-Shop</div>
+                <div className="title" onClick={handleback}>Japanese Street Food</div>
                 <button className="cart" onClick={handleClick}>🛒</button>
             </nav>
             <div>
